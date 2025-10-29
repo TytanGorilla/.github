@@ -1,73 +1,10 @@
 name: Feature
-description: New user-facing capability
-title: "feat: <short summary>"
-labels: ["feature"]
-assignees: []
+description: New capability
+title: "feat: <summary>"
 body:
   - type: textarea
     id: goal
     attributes:
       label: Goal
-      description: One or two sentences describing what and why.
-      placeholder: "As a <role>, I want <capability> so that <benefit>."
-    validations:
-      required: true
-
-  - type: textarea
-    id: acceptance
-    attributes:
-      label: Acceptance criteria
-      description: Checklist of verifiable outcomes.
-      value: |
-        - [ ] Unit tests added and passing
-        - [ ] Integration/E2E added if needed
-        - [ ] Docs updated (README/ARCHITECTURE)
-        - [ ] Helm values updated if env/ports change
-    validations:
-      required: true
-
-  - type: textarea
-    id: files
-    attributes:
-      label: Files to touch
-      description: Paths/modules Codex should modify (guide the agent).
-      placeholder: |
-        src/app/...
-        tests/...
-        charts/app/values.yaml
-    validations:
-      required: false
-
-  - type: textarea
-    id: agent
-    attributes:
-      label: Agent guidance
-      description: Pseudocode, scaffolding, API notes the agent should follow.
-      placeholder: |
-        - Add endpoint: /api/...
-        - Validate payload {...}
-        - Return { ... }
-    validations:
-      required: false
-
-  - type: dropdown
-    id: datachange
-    attributes:
-      label: Database schema change?
-      options:
-        - "no"
-        - "yes (migration required)"
-    validations:
-      required: true
-
-  - type: textarea
-    id: changelog
-    attributes:
-      label: Changelog entry (for CHANGELOG.md → [Unreleased])
-      description: Bullet(s) the agent will mirror into CHANGELOG.md under [Unreleased].
-      placeholder: |
-        - Added: <short, user-facing summary>
-      value: |
-        - Added: <short, user-facing summary>
     validations:
       required: true
