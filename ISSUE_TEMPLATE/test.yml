@@ -1,0 +1,45 @@
+name: Test task
+description: Add or improve tests
+title: "test: <short summary>"
+labels: ["test"]
+assignees: []
+body:
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope
+      description: Which code paths are covered and why.
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files to touch
+      description: Target modules and test files.
+      placeholder: |
+        src/...
+        tests/...
+    validations:
+      required: true
+
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      value: |
+        - [ ] Unit tests pass locally and in CI
+        - [ ] Integration/E2E added if needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: changelog
+    attributes:
+      label: Changelog entry (optional)
+      description: Only if the test task reveals a user-visible fix/change.
+      placeholder: |
+        - Fixed: ...
+      value: ""
+    validations:
+      required: false

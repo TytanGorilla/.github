@@ -1,0 +1,43 @@
+name: Spike
+description: Time-boxed research with clear deliverables
+title: "spike: <short summary>"
+labels: ["spike"]
+assignees: []
+body:
+  - type: input
+    id: timebox
+    attributes:
+      label: Timebox
+      description: e.g., 6h, 8h
+    validations:
+      required: true
+
+  - type: textarea
+    id: questions
+    attributes:
+      label: Questions
+      description: What do we need to learn/decide?
+    validations:
+      required: true
+
+  - type: textarea
+    id: deliverables
+    attributes:
+      label: Deliverables
+      description: Link to doc/POC, decision record, or prototype branch.
+      placeholder: |
+        - /docs/spikes/<topic>.md
+        - Prototype repo/branch: ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files to touch (if any)
+      description: If a POC requires code, list paths here.
+      placeholder: |
+        src/...
+        tests/...
+    validations:
+      required: false

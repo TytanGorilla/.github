@@ -1,0 +1,67 @@
+name: Bug
+description: Fix a broken behavior
+title: "fix: <short summary>"
+labels: ["bug"]
+assignees: []
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed
+      description: What happened (include logs, screenshots).
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected
+      description: What should have happened.
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      description: Exact steps and environment.
+      placeholder: |
+        1. ...
+        2. ...
+        3. ...
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files to touch
+      description: Likely modules/paths to modify or test.
+      placeholder: |
+        src/app/...
+        tests/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests to add/update
+      description: Unit/integration/E2E coverage to prevent regressions.
+      value: |
+        - [ ] Unit test added
+        - [ ] Integration or E2E added if needed
+    validations:
+      required: true
+
+  - type: textarea
+    id: changelog
+    attributes:
+      label: Changelog entry (for CHANGELOG.md → [Unreleased])
+      description: Bullet(s) the agent will mirror into CHANGELOG.md under [Unreleased].
+      placeholder: |
+        - Fixed: <short, user-facing summary>
+      value: |
+        - Fixed: <short, user-facing summary>
+    validations:
+      required: true

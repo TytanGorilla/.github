@@ -1,0 +1,55 @@
+name: Chore
+description: Refactor, infra, or maintenance (no user-visible change)
+title: "chore: <short summary>"
+labels: ["chore"]
+assignees: []
+body:
+  - type: textarea
+    id: change
+    attributes:
+      label: Change
+      description: What and why (keep concise).
+    validations:
+      required: true
+
+  - type: textarea
+    id: files
+    attributes:
+      label: Files to touch
+      description: Paths/modules to update.
+      placeholder: |
+        src/...
+        charts/...
+        .github/workflows/...
+    validations:
+      required: false
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact
+      description: Risk and rollback notes (if any).
+    validations:
+      required: false
+
+  - type: textarea
+    id: tests
+    attributes:
+      label: Tests
+      description: Any coverage adjustments.
+      placeholder: |
+        - [ ] Unit tests pass
+        - [ ] No user-visible change
+    validations:
+      required: false
+
+  - type: textarea
+    id: changelog
+    attributes:
+      label: Changelog entry (optional)
+      description: Only if this chore is user-visible. Otherwise leave blank.
+      placeholder: |
+        - Changed: ...
+      value: ""
+    validations:
+      required: false

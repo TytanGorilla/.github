@@ -1,0 +1,10 @@
+# .github/ISSUE_TEMPLATE/config.yml
+blank_issues_enabled: false
+
+contact_links:
+  - name: Security report
+    url: https://example.com/security
+    about: Please report security issues privately.
+  - name: General questions
+    url: https://example.com/contact
+    about: For non-bug discussions or help requests
