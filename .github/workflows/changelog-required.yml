@@ -1,0 +1,43 @@
+name: changelog-required
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+      - reopened
+      - ready_for_review
+
+permissions:
+  pull-requests: read
+
+jobs:
+  changelog:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ensure changelog updated for feat/fix PRs
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const core = require('@actions/core');
+            const title = context.payload.pull_request?.title ?? '';
+            if (!title.startsWith('feat:') && !title.startsWith('fix:')) {
+              core.info('Changelog update not required for this PR title.');
+              return;
+            }
+
+            const prNumber = context.payload.pull_request.number;
+            const files = await github.paginate(github.rest.pulls.listFiles, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: prNumber,
+              per_page: 100,
+            });
+
+            const hasChangelog = files.some((file) => file.filename === 'CHANGELOG.md');
+            if (!hasChangelog) {
+              core.setFailed('feat/fix PRs must include a CHANGELOG.md update in the [Unreleased] section.');
+            } else {
+              core.info('CHANGELOG.md update detected.');
+            }
